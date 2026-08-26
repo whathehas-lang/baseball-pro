@@ -926,7 +926,7 @@ const state = {
   currentRound: 260101,
   autoRoundSync: true,
   autoRoundTimer: null,
-  hidePastMatches: false,
+  hidePastMatches: true,
   matches: [],
   filteredMatches: [],
   currentFilter: 'all', // 'all', 'seung1pae', 'kbo', 'mlb', 'npb'
@@ -35255,6 +35255,42 @@ function buildMatchesFromProtoData(dataList) {
   });
 }
 
+
+// ⏰ 경기 시작 여부 실시간 판별 함수
+function isMatchStarted(m) {
+  try {
+    const now = new Date();
+    let dStr = m.game_date || m.gameDate || '';
+    let tStr = m.game_time || m.gameTime || '';
+    
+    if (m.full_date) {
+      const parts = m.full_date.match(/(\d{4}-\d{2}-\d{2}).*?(\d{1,2}:\d{2})/);
+      if (parts) {
+        dStr = parts[1];
+        tStr = parts[2];
+      }
+    }
+    
+    if (!dStr || !tStr) return false;
+    
+    if (dStr.length === 5) {
+      dStr = ${now.getFullYear()}-;
+    } else if (!dStr.startsWith('20')) {
+      const parts = dStr.match(/(\d{2})[-/.](\d{2})/);
+      if (parts) {
+        dStr = ${now.getFullYear()}--;
+      }
+    }
+    
+    const matchTime = new Date(${dStr}T:00);
+    if (isNaN(matchTime.getTime())) return false;
+    
+    return now >= matchTime;
+  } catch (e) {
+    return false;
+  }
+}
+
 // ⏳ 지난 경기 숨김 토글
 function toggleHidePastMatches() {
   state.hidePastMatches = !state.hidePastMatches;
@@ -35310,6 +35346,11 @@ function applyFilterAndRender() {
     list = list.filter(m => (m.league || '').toUpperCase() === 'MLB');
   } else if (state.currentFilter === 'npb') {
     list = list.filter(m => (m.league || '').toUpperCase() === 'NPB');
+  }
+
+  // ⏰ [경기 시작 시간 도래 시 자동 숨김 처리]
+  if (state.hidePastMatches) {
+    list = list.filter(m => !isMatchStarted(m));
   }
 
   // ⚡ [강제 정렬 및 바인딩 적용: Numeric Ascending Sort]
@@ -36137,5 +36178,13 @@ if ('serviceWorker' in navigator) {
 }
 
 </script>
+
+// ⏰ 10초마다 경기 시작 여부 실시간 체크하여 시작된 경기 자동 숨김
+const portalAutoPastTimer = setInterval(() => {
+  if (state.hidePastMatches) {
+    applyFilterAndRender();
+  }
+}, 10000);
+
 </body>
 </html>
