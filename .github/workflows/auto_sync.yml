@@ -2,8 +2,8 @@ name: 24H Auto Sync & Deploy Portal Baseball
 
 on:
   schedule:
-    # 매 시간마다 자동 실행 (UTC 기준)
-    - cron: '15 * * * *'
+    # ⏰ 매 2시간마다 자동 실행 (KST 짝수/홀수 2시간 주기)
+    - cron: '0 */2 * * *'
   workflow_dispatch:
 
 permissions:
