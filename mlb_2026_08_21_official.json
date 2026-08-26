@@ -1,0 +1,332 @@
+[
+  {
+    "game_pk": 823746,
+    "home_team": "밀워키 브루어스",
+    "away_team": "애틀랜타 브레이브스",
+    "home_team_en": "Milwaukee Brewers",
+    "away_team_en": "Atlanta Braves",
+    "kst_date": "08.22(토)",
+    "kst_time": "05:10",
+    "venue": "American Family Field",
+    "home_pitcher": "미시오로우스키",
+    "away_pitcher": "크리스 세일",
+    "home_stat": {
+      "era": 3.45,
+      "fip": 3.4,
+      "whip": 1.15
+    },
+    "away_stat": {
+      "era": 2.38,
+      "fip": 2.25,
+      "whip": 1.01
+    }
+  },
+  {
+    "game_pk": 823420,
+    "home_team": "필라델피아 필리스",
+    "away_team": "세인트루이스 카디널스",
+    "home_team_en": "Philadelphia Phillies",
+    "away_team_en": "St. Louis Cardinals",
+    "kst_date": "08.22(토)",
+    "kst_time": "07:40",
+    "venue": "Citizens Bank Park",
+    "home_pitcher": "Jesús Luzardo",
+    "away_pitcher": "Hunter Dobbins",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 823510,
+    "home_team": "뉴욕 양키스",
+    "away_team": "토론토 블루제이스",
+    "home_team_en": "New York Yankees",
+    "away_team_en": "Toronto Blue Jays",
+    "kst_date": "08.22(토)",
+    "kst_time": "08:05",
+    "venue": "Yankee Stadium",
+    "home_pitcher": "Cam Schlittler",
+    "away_pitcher": "Mason Fluharty",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824721,
+    "home_team": "보스턴 레드삭스",
+    "away_team": "샌프란시스코 자이언츠",
+    "home_team_en": "Boston Red Sox",
+    "away_team_en": "San Francisco Giants",
+    "kst_date": "08.22(토)",
+    "kst_time": "08:10",
+    "venue": "Fenway Park",
+    "home_pitcher": "소니 그레이",
+    "away_pitcher": "로건 웹",
+    "home_stat": {
+      "era": 3.84,
+      "fip": 3.2,
+      "whip": 1.08
+    },
+    "away_stat": {
+      "era": 3.47,
+      "fip": 3.1,
+      "whip": 1.18
+    }
+  },
+  {
+    "game_pk": 823830,
+    "home_team": "마이애미 말린스",
+    "away_team": "워싱턴 내셔널스",
+    "home_team_en": "Miami Marlins",
+    "away_team_en": "Washington Nationals",
+    "kst_date": "08.22(토)",
+    "kst_time": "08:10",
+    "venue": "loanDepot park",
+    "home_pitcher": "Ryan Gusto",
+    "away_pitcher": "Brad Lord",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824800,
+    "home_team": "볼티모어 오리올스",
+    "away_team": "탬파베이 레이스",
+    "home_team_en": "Baltimore Orioles",
+    "away_team_en": "Tampa Bay Rays",
+    "kst_date": "08.22(토)",
+    "kst_time": "08:15",
+    "venue": "Oriole Park at Camden Yards",
+    "home_pitcher": "Trevor Rogers",
+    "away_pitcher": "Freddy Peralta",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824559,
+    "home_team": "시카고 화이트삭스",
+    "away_team": "뉴욕 메츠",
+    "home_team_en": "Chicago White Sox",
+    "away_team_en": "New York Mets",
+    "kst_date": "08.22(토)",
+    "kst_time": "08:40",
+    "venue": "Rate Field",
+    "home_pitcher": "Sean Burke",
+    "away_pitcher": "Sean Manaea",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824072,
+    "home_team": "캔자스시티 로열스",
+    "away_team": "디트로이트 타이거스",
+    "home_team_en": "Kansas City Royals",
+    "away_team_en": "Detroit Tigers",
+    "kst_date": "08.22(토)",
+    "kst_time": "09:10",
+    "venue": "Kauffman Stadium",
+    "home_pitcher": "Noah Cameron",
+    "away_pitcher": "Troy Melton",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824152,
+    "home_team": "휴스턴 애스트로스",
+    "away_team": "애슬레틱스",
+    "home_team_en": "Houston Astros",
+    "away_team_en": "Athletics",
+    "kst_date": "08.22(토)",
+    "kst_time": "09:10",
+    "venue": "Daikin Park",
+    "home_pitcher": "Hayden Wesneski",
+    "away_pitcher": "J.T. Ginn",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 822857,
+    "home_team": "텍사스 레인저스",
+    "away_team": "LA 에인절스",
+    "home_team_en": "Texas Rangers",
+    "away_team_en": "Los Angeles Angels",
+    "kst_date": "08.22(토)",
+    "kst_time": "09:15",
+    "venue": "Globe Life Field",
+    "home_pitcher": "맥켄지 고어",
+    "away_pitcher": "Reid Detmers",
+    "home_stat": {
+      "era": 3.9,
+      "fip": 3.6,
+      "whip": 1.28
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 824317,
+    "home_team": "콜로라도 로키스",
+    "away_team": "클리블랜드 가디언스",
+    "home_team_en": "Colorado Rockies",
+    "away_team_en": "Cleveland Guardians",
+    "kst_date": "08.22(토)",
+    "kst_time": "09:40",
+    "venue": "Coors Field",
+    "home_pitcher": "Tanner Gordon",
+    "away_pitcher": "Joey Cantillo",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 825045,
+    "home_team": "애리조나 다이아몬드백스",
+    "away_team": "신시내티 레즈",
+    "home_team_en": "Arizona Diamondbacks",
+    "away_team_en": "Cincinnati Reds",
+    "kst_date": "08.22(토)",
+    "kst_time": "10:40",
+    "venue": "Chase Field",
+    "home_pitcher": "Eduardo Rodriguez",
+    "away_pitcher": "Nick Lodolo",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 823262,
+    "home_team": "샌디에이고 파드리스",
+    "away_team": "미네소타 트윈스",
+    "home_team_en": "San Diego Padres",
+    "away_team_en": "Minnesota Twins",
+    "kst_date": "08.22(토)",
+    "kst_time": "10:40",
+    "venue": "Petco Park",
+    "home_pitcher": "Randy Vásquez",
+    "away_pitcher": "Connor Prielipp",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 823911,
+    "home_team": "LA 다저스",
+    "away_team": "피츠버그 파이리츠",
+    "home_team_en": "Los Angeles Dodgers",
+    "away_team_en": "Pittsburgh Pirates",
+    "kst_date": "08.22(토)",
+    "kst_time": "11:10",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "home_pitcher": "야마모토 요시노부",
+    "away_pitcher": "Bubba Chandler",
+    "home_stat": {
+      "era": 3.0,
+      "fip": 2.8,
+      "whip": 1.08
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  },
+  {
+    "game_pk": 823101,
+    "home_team": "시애틀 매리너스",
+    "away_team": "시카고 컵스",
+    "home_team_en": "Seattle Mariners",
+    "away_team_en": "Chicago Cubs",
+    "kst_date": "08.22(토)",
+    "kst_time": "11:10",
+    "venue": "T-Mobile Park",
+    "home_pitcher": "Emerson Hancock",
+    "away_pitcher": "Matthew Boyd",
+    "home_stat": {
+      "era": 3.65,
+      "fip": 3.6,
+      "whip": 1.18
+    },
+    "away_stat": {
+      "era": 3.75,
+      "fip": 3.7,
+      "whip": 1.2
+    }
+  }
+]

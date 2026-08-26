@@ -1,0 +1,44 @@
+name: Betman Proto Baseball Auto Updater
+
+# 3시간마다 자동 실행 (KST 기준 09시, 12시, 15시, 18시, 21시, 00시, 03시, 06시)
+# GitHub Actions 탭에서 [Run workflow] 버튼으로 언제든 1초 수동 실행도 가능
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-crawl:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 저장소 코드 가져오기
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. 파이썬 환경 설정
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. 크롤링에 필요한 패키지 설치
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install selenium webdriver-manager
+
+    # 4. 실시간 MLB.com 공식 Stats API & KBO & 배트맨 자동 크롤러 실행
+    - name: Run Betman Crawler
+      run: python betman_crawler.py
+
+    # 5. 업데이트된 betman_baseball.json 자동 커밋 및 푸시
+    - name: Commit and push updated JSON
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add betman_baseball.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update real-time MLB & KBO starters [skip ci]" && git push)

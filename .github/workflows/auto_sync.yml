@@ -1,0 +1,39 @@
+name: 24H Auto Sync & Deploy Portal Baseball
+
+on:
+  schedule:
+    # 매 시간마다 자동 실행 (UTC 기준)
+    - cron: '15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  sync_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests pillow
+
+      - name: Run Master Sync Agent
+        run: |
+          python master_sync_agent.py --fetch --update all
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'Portal Baseball Bot'
+          git config --global user.email 'bot@portalbaseball.ai'
+          git add -A
+          git diff --quiet && git diff --staged --quiet || (git commit -m '🤖 [24H AutoSync] 베트맨 & MLB 공식 데이터 자동 동기화' && git push)
