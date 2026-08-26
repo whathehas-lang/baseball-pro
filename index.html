@@ -35264,9 +35264,9 @@ function isMatchStarted(m) {
     let tStr = m.game_time || m.gameTime || '';
     
     if (m.full_date) {
-      const parts = m.full_date.match(/(\d{4}-\d{2}-\d{2}).*?(\d{1,2}:\d{2})/);
-      if (parts) {
-        dStr = parts[1];
+      const parts = String(m.full_date).split(' ');
+      if (parts.length >= 3) {
+        dStr = parts[0];
         tStr = parts[2];
       }
     }
@@ -35274,15 +35274,11 @@ function isMatchStarted(m) {
     if (!dStr || !tStr) return false;
     
     if (dStr.length === 5) {
-      dStr = ${now.getFullYear()}-;
-    } else if (!dStr.startsWith('20')) {
-      const parts = dStr.match(/(\d{2})[-/.](\d{2})/);
-      if (parts) {
-        dStr = ${now.getFullYear()}--;
-      }
+      dStr = now.getFullYear() + '-' + dStr;
     }
     
-    const matchTime = new Date(${dStr}T:00);
+    const timeStr = tStr.length === 4 ? '0' + tStr : tStr;
+    const matchTime = new Date(dStr + 'T' + timeStr + ':00');
     if (isNaN(matchTime.getTime())) return false;
     
     return now >= matchTime;
