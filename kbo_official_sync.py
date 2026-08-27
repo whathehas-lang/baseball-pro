@@ -52,24 +52,83 @@ def normalize_kbo_team(name):
     clean = str(name).strip()
     return KBO_TEAM_NORMALIZE.get(clean, clean)
 
-# 2. 2026 KBO 공식 등록 투수 마스터 데이터베이스 (실제 시즌 기록 기반)
-KBO_2026_PITCHER_MASTER = {
-    "김민준": {"team": "SSG", "era": 3.45, "fip": 3.35, "whip": 1.15, "k9": 8.60, "bb9": 2.20, "wins": 8, "losses": 4, "so": 118, "bp_pitches": 30},
-    "화이트": {"team": "한화", "era": 3.68, "fip": 3.52, "whip": 1.22, "k9": 9.10, "bb9": 2.40, "wins": 7, "losses": 5, "so": 125, "bp_pitches": 32},
-    "시라카와": {"team": "KIA", "era": 3.82, "fip": 3.70, "whip": 1.26, "k9": 8.70, "bb9": 2.90, "wins": 6, "losses": 5, "so": 98, "bp_pitches": 35},
-    "비슬리": {"team": "롯데", "era": 3.55, "fip": 3.40, "whip": 1.18, "k9": 9.30, "bb9": 2.10, "wins": 8, "losses": 4, "so": 130, "bp_pitches": 28},
-    "톨허스트": {"team": "LG", "era": 3.35, "fip": 3.20, "whip": 1.10, "k9": 9.10, "bb9": 2.05, "wins": 8, "losses": 4, "so": 125, "bp_pitches": 28},
-    "테일러": {"team": "NC", "era": 3.65, "fip": 3.55, "whip": 1.20, "k9": 8.50, "bb9": 2.40, "wins": 7, "losses": 5, "so": 110, "bp_pitches": 45},
-    "소형준": {"team": "KT", "era": 3.25, "fip": 3.15, "whip": 1.12, "k9": 8.40, "bb9": 1.95, "wins": 10, "losses": 3, "so": 115, "bp_pitches": 26},
-    "최민석": {"team": "두산", "era": 3.75, "fip": 3.60, "whip": 1.25, "k9": 8.80, "bb9": 2.80, "wins": 6, "losses": 6, "so": 105, "bp_pitches": 38},
-    "알칸타라": {"team": "키움", "era": 3.40, "fip": 3.28, "whip": 1.14, "k9": 8.90, "bb9": 2.15, "wins": 9, "losses": 5, "so": 135, "bp_pitches": 30},
-    "보스": {"team": "삼성", "era": 3.15, "fip": 3.05, "whip": 1.08, "k9": 9.40, "bb9": 1.85, "wins": 11, "losses": 4, "so": 148, "bp_pitches": 25},
-    "임찬규": {"team": "LG", "era": 3.60, "fip": 3.50, "whip": 1.22, "k9": 8.20, "bb9": 2.20, "wins": 8, "losses": 5, "so": 108, "bp_pitches": 30},
-    "문동주": {"team": "한화", "era": 3.70, "fip": 3.55, "whip": 1.23, "k9": 9.50, "bb9": 2.70, "wins": 7, "losses": 6, "so": 120, "bp_pitches": 34},
-    "신민혁": {"team": "NC", "era": 3.80, "fip": 3.65, "whip": 1.25, "k9": 7.90, "bb9": 2.10, "wins": 7, "losses": 6, "so": 95, "bp_pitches": 36},
-    "양현종": {"team": "KIA", "era": 3.75, "fip": 3.65, "whip": 1.26, "k9": 8.10, "bb9": 2.15, "wins": 8, "losses": 5, "so": 115, "bp_pitches": 32},
-    "박세웅": {"team": "롯데", "era": 3.95, "fip": 3.80, "whip": 1.28, "k9": 8.50, "bb9": 2.50, "wins": 7, "losses": 7, "so": 118, "bp_pitches": 40}
+KBO_PITCHER_ID_CACHE = {
+    '양현종': '77637', '김건우': '51867', '박시원': '50996',
+    '류현진': '76715', '문동주': '52701', '곽빈': '68220',
+    '박세웅': '64021', '임찬규': '61101', '원태인': '69446',
+    '고영표': '64001', '나균안': '67539', '토다': '56911',
+    '최승용': '51264', '하영민': '64350', '짐머맨': '56799'
 }
+
+def parse_ip(ip_str):
+    if not ip_str or ip_str == '-': return 0.0
+    parts = str(ip_str).strip().split()
+    whole = float(parts[0]) if parts[0].isdigit() else 0.0
+    frac = 0.0
+    if len(parts) > 1:
+        if '1/3' in parts[1]: frac = 0.333
+        elif '2/3' in parts[1]: frac = 0.667
+    return whole + frac
+
+def get_kbo_official_full_stats(name):
+    default_res = {'era': '-', 'fip': '-', 'whip': '-', 'k9': '-', 'bb9': '-', 'wins': 0, 'losses': 0}
+    if not name or name in ['선발 (TBD)', 'TBD', '선발미정']:
+        return default_res
+    pid = KBO_PITCHER_ID_CACHE.get(name)
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    if not pid:
+        try:
+            from bs4 import BeautifulSoup
+            search_url = f'https://www.koreabaseball.com/Player/Search.aspx?searchWord={urllib.parse.quote(name)}'
+            req = urllib.request.Request(search_url, headers=headers)
+            with urllib.request.urlopen(req, context=ctx, timeout=4) as res:
+                html = res.read().decode('utf-8', errors='ignore')
+                soup = BeautifulSoup(html, 'html.parser')
+                for a in soup.find_all('a'):
+                    href = a.get('href', '')
+                    if 'playerId=' in href:
+                        m = re.search(r'playerId=(\d+)', href)
+                        if m:
+                            pid = m.group(1)
+                            break
+        except Exception:
+            pass
+
+    if pid:
+        try:
+            from bs4 import BeautifulSoup
+            detail_url = f'https://www.koreabaseball.com/Record/Player/PitcherDetail/Total.aspx?playerId={pid}'
+            d_req = urllib.request.Request(detail_url, headers=headers)
+            with urllib.request.urlopen(d_req, context=ctx, timeout=4) as d_res:
+                d_html = d_res.read().decode('utf-8', errors='ignore')
+                d_soup = BeautifulSoup(d_html, 'html.parser')
+                rows = d_soup.select('tbody tr')
+                if rows:
+                    cols = [td.get_text(strip=True) for td in rows[-1].find_all(['td', 'th'])]
+                    if len(cols) >= 18:
+                        era = float(cols[2]) if cols[2] != '-' else '-'
+                        w = int(cols[6]) if cols[6].isdigit() else 0
+                        l = int(cols[7]) if cols[7].isdigit() else 0
+                        ip = parse_ip(cols[12])
+                        h = float(cols[13]) if cols[13].isdigit() else 0.0
+                        hr = float(cols[14]) if cols[14].isdigit() else 0.0
+                        bb = float(cols[15]) if cols[15].isdigit() else 0.0
+                        hbp = float(cols[16]) if cols[16].isdigit() else 0.0
+                        so = float(cols[17]) if cols[17].isdigit() else 0.0
+                        if ip > 0:
+                            fip = round((13 * hr + 3 * (bb + hbp) - 2 * so) / ip + 3.15, 2)
+                            whip = round((h + bb) / ip, 2)
+                            k9 = round((so * 9) / ip, 2)
+                            bb9 = round((bb * 9) / ip, 2)
+                            return {'era': era, 'fip': fip, 'whip': whip, 'k9': k9, 'bb9': bb9, 'wins': w, 'losses': l}
+                        elif era != '-':
+                            return {'era': era, 'fip': era, 'whip': '-', 'k9': '-', 'bb9': '-', 'wins': w, 'losses': l}
+        except Exception:
+            pass
+    return default_res
 
 def fetch_live_kbo_starters(target_date=None):
     """
@@ -120,61 +179,43 @@ def fetch_live_kbo_starters(target_date=None):
 
 def get_kbo_saber_stats(pitcher_name, is_home=True, team_name="KBO"):
     """
-    선수명 1:1 매칭 및 정밀 세이버메트릭스 생성 (더미/가짜 데이터 완전 방지)
+    선수명 1:1 매칭 및 정밀 세이버메트릭스 생성 (공식 KBO 통계 및 FIP 산출 연동)
     """
     clean = str(pitcher_name or "").strip()
-    stat = KBO_2026_PITCHER_MASTER.get(clean)
-    if not stat:
-        for k, v in KBO_2026_PITCHER_MASTER.items():
-            if k in clean or clean in k:
-                stat = v
-                break
-    if not stat:
-        # 동적 해시 생성 (새로운 2026 신인/대체 선발 투수 대응)
-        seed = sum(ord(c) for c in clean)
-        era = round(3.40 + (seed % 10) * 0.08, 2)
-        fip = round(era - 0.12, 2)
-        whip = round(1.10 + (seed % 8) * 0.03, 2)
-        k9 = round(8.4 + (seed % 15) * 0.1, 1)
-        bb9 = round(2.1 + (seed % 10) * 0.1, 1)
-        wins = 7 + (seed % 4)
-        losses = 4 + (seed % 4)
-        stat = {
-            "team": team_name, "era": era, "fip": fip, "whip": whip,
-            "k9": k9, "bb9": bb9, "wins": wins, "losses": losses, "so": 120, "bp_pitches": 30
-        }
+    stat = get_kbo_official_full_stats(clean)
 
-    rec_era = round(stat['era'] - 0.35 if is_home else stat['era'] + 0.40, 2)
-    rec_whip = round(stat['whip'] - 0.08 if is_home else stat['whip'] + 0.10, 2)
-    rec_inn = 6.6 if is_home else 5.8
+    is_tbd = (clean in ['', '선발미정', '미정', 'TBD', '선발 (TBD)'])
+    rec_era = stat.get('era', '-')
+    rec_whip = stat.get('whip', '-')
+    rec_inn = '-'
 
     return {
         "pitcher": clean,
-        "is_tbd": clean in ['', '선발미정', '미정', 'TBD'],
-        "sp_era": stat['era'],
-        "sp_fip": stat['fip'],
-        "whip": stat['whip'],
-        "k9": stat['k9'],
-        "bb9": stat['bb9'],
-        "wins": stat['wins'],
-        "losses": stat['losses'],
-        "strikeouts": stat['so'],
-        "record": f"{stat['wins']}승 {stat['losses']}패",
-        "wrc_plus": 114 if is_home else 106,
-        "ops": 0.775 if is_home else 0.730,
-        "bp_fip": round(stat['fip'] * 0.95, 2),
-        "bp_pitches": stat['bp_pitches'],
-        "split_home_era": round(stat['era'] * 0.88, 2),
-        "split_away_era": round(stat['era'] * 1.12, 2),
-        "split_home_whip": round(stat['whip'] * 0.92, 2),
-        "split_away_whip": round(stat['whip'] * 1.08, 2),
-        "split_home_ip": 6.8 if is_home else 5.8,
-        "split_away_ip": 5.9 if is_home else 6.4,
-        "badge": "🏠 홈 강세 에이스" if is_home else "✈️ 원정 선발 로테이션",
+        "is_tbd": is_tbd,
+        "sp_era": stat.get('era', '-'),
+        "sp_fip": stat.get('fip', '-'),
+        "whip": stat.get('whip', '-'),
+        "k9": stat.get('k9', '-'),
+        "bb9": stat.get('bb9', '-'),
+        "wins": stat.get('wins', 0),
+        "losses": stat.get('losses', 0),
+        "strikeouts": 0,
+        "record": f"{stat.get('wins', 0)}승 {stat.get('losses', 0)}패",
+        "wrc_plus": 100,
+        "ops": 0.720,
+        "bp_fip": stat.get('fip', '-'),
+        "bp_pitches": 30,
+        "split_home_era": stat.get('era', '-'),
+        "split_away_era": stat.get('era', '-'),
+        "split_home_whip": stat.get('whip', '-'),
+        "split_away_whip": stat.get('whip', '-'),
+        "split_home_ip": '-',
+        "split_away_ip": '-',
+        "badge": "🏠 선발 로테이션" if is_home else "✈️ 원정 선발",
         "recent3": {
-            "era": {"value": rec_era, "isPositive": is_home, "symbol": "▲" if is_home else "▼"},
-            "whip": {"value": rec_whip, "isPositive": is_home, "symbol": "▲" if is_home else "▼"},
-            "innings": {"value": rec_inn, "isPositive": is_home, "symbol": "▲" if is_home else "▼"}
+            "era": {"value": rec_era, "isPositive": True, "symbol": "-"},
+            "whip": {"value": rec_whip, "isPositive": True, "symbol": "-"},
+            "innings": {"value": rec_inn, "isPositive": True, "symbol": "-"}
         }
     }
 

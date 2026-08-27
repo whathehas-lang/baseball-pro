@@ -707,8 +707,14 @@ def resolve_pitcher_stats(name, is_home=True):
     }
 
 def run_auto_sync():
-    """전체 21경기 자동 수집 및 동기화 메인 프로세스"""
+    """전체 경기 실시간 공식 API 동기화 메인 프로세스"""
     logger.info("🚀 [AutoScraperEngine] 실시간 선발 투수 데이터 자동 수집 & 동기화 시작...")
+
+    try:
+        from master_sync_agent import sync_and_validate_all
+        sync_and_validate_all()
+    except Exception as e:
+        logger.warning(f"마스터 동기화 에이전트 실행 오류: {e}")
 
     try:
         from kbo_official_sync import sync_kbo_games
