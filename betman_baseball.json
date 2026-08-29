@@ -11992,24 +11992,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12023,24 +12023,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12108,24 +12108,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12139,24 +12139,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12224,24 +12224,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12255,24 +12255,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12340,24 +12340,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12371,24 +12371,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12456,24 +12456,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12487,24 +12487,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12572,24 +12572,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12603,24 +12603,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12688,24 +12688,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12719,24 +12719,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12804,24 +12804,24 @@
     "home_saber": {
       "pitcher": "Blade Tidwell",
       "is_tbd": false,
-      "sp_era": 3.58,
-      "sp_fip": 3.53,
-      "whip": 1.18,
-      "k9": 7.55,
-      "bb9": 3.35,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
       "losses": 0,
       "badge": "🏠 공식 예고 선발",
-      "split_home_era": 3.58,
-      "split_away_era": 3.58,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 3.58,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.18,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
@@ -12835,24 +12835,24 @@
     "away_saber": {
       "pitcher": "Kohl Drake",
       "is_tbd": false,
-      "sp_era": 5.4,
-      "sp_fip": 5.57,
-      "whip": 1.6,
-      "k9": 7.22,
-      "bb9": 3.33,
+      "sp_era": "-",
+      "sp_fip": "-",
+      "whip": "-",
+      "k9": "-",
+      "bb9": "-",
       "wins": 0,
-      "losses": 1,
+      "losses": 0,
       "badge": "✈️ 공식 예고 선발",
-      "split_home_era": 5.4,
-      "split_away_era": 5.4,
+      "split_home_era": "-",
+      "split_away_era": "-",
       "recent3": {
         "era": {
-          "value": 5.4,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
         "whip": {
-          "value": 1.6,
+          "value": "-",
           "isPositive": true,
           "symbol": "-"
         },
